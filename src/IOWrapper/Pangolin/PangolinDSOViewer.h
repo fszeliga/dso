@@ -24,7 +24,7 @@
 
 #pragma once
 #include <pangolin/pangolin.h>
-#include "boost/thread.hpp"
+#include <thread>
 #include "util/MinimalImage.h"
 #include "IOWrapper/Output3DWrapper.h"
 #include <map>
@@ -85,14 +85,14 @@ private:
 	void reset_internal();
 	void drawConstraints();
 
-	boost::thread runThread;
+	std::thread runThread;
 	bool running;
 	int w,h;
 
 
 
 	// images rendering
-	boost::mutex openImagesMutex;
+	std::mutex openImagesMutex;
 	MinimalImageB3* internalVideoImg;
 	MinimalImageB3* internalKFImg;
 	MinimalImageB3* internalResImg;
@@ -101,7 +101,7 @@ private:
 
 
 	// 3D model rendering
-	boost::mutex model3DMutex;
+	std::mutex model3DMutex;
 	KeyFrameDisplay* currentCam;
 	std::vector<KeyFrameDisplay*> keyframes;
 	std::vector<Vec3f,Eigen::aligned_allocator<Vec3f>> allFramePoses;

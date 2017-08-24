@@ -39,7 +39,7 @@
 	#include "zip.h"
 #endif
 
-#include <boost/thread.hpp>
+//#include <boost/thread.hpp>
 
 using namespace dso;
 
